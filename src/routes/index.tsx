@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
 const PHONE = "828-352-9901";
 const PHONE_TEL = "+18283529901";
 const ADDRESS = "60 Liledoun Rd, Taylorsville, NC 28681";
-const HOURS = "Open Daily · 11am – 10pm";
+const HOURS = "Open Daily · 11am – 10pm · Fridays till 10:30";
 
 type Item = { n?: string; name: string; desc?: string; price: string };
 type Section = {
