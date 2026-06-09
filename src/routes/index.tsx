@@ -2,16 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import imgAppetizers from "@/assets/appetizers.jpg";
-import imgLunch from "@/assets/lunch.jpg";
-import imgSpecialties from "@/assets/molcajete.jpg";
-import imgBurritos from "@/assets/burritos.jpg";
-import imgFajitas from "@/assets/fajitas.jpg";
-import imgEnchiladas from "@/assets/enchiladas.jpg";
-import imgSeafood from "@/assets/seafood.jpg";
-import imgCombos from "@/assets/combinations.jpg";
-import imgDesserts from "@/assets/desserts.jpg";
-import imgKids from "@/assets/kids.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -28,7 +18,6 @@ type Section = {
   label: string;
   tab: string;
   color: "chili" | "cactus" | "marigold" | "agave" | "mesa";
-  image: string;
   blurb?: string;
   groups?: { title?: string; note?: string; items: Item[] }[];
   items?: Item[];
@@ -40,7 +29,6 @@ const SECTIONS: Section[] = [
     label: "Appetizers, Nachos, Soups & More",
     tab: "Appetizers",
     color: "mesa",
-    image: imgAppetizers,
     blurb: "Start it right. Chips down, guac up.",
     groups: [
       {
@@ -139,7 +127,6 @@ const SECTIONS: Section[] = [
     label: "Lunch Menu",
     tab: "Lunch",
     color: "chili",
-    image: imgLunch,
     blurb: "Served 11am – 3:30pm. Substitute or add cheese dip $1.75. *$1 extra on Sundays.",
     groups: [
       {
@@ -206,7 +193,6 @@ const SECTIONS: Section[] = [
     label: "Specialties",
     tab: "Specialties",
     color: "mesa",
-    image: imgSpecialties,
     blurb: "The kitchen's pride. Cast iron, big plates, real fire. Substitute or add cheese dip $1.75.",
     groups: [
       {
@@ -249,7 +235,6 @@ const SECTIONS: Section[] = [
     label: "Special Dinners, Quesadillas & Burritos",
     tab: "Burritos",
     color: "marigold",
-    image: imgBurritos,
     groups: [
       {
         title: "Special Dinners",
@@ -303,7 +288,6 @@ const SECTIONS: Section[] = [
     label: "Fajitas",
     tab: "Fajitas",
     color: "cactus",
-    image: imgFajitas,
     blurb: "Sizzling skillets · rice, beans and salad included.",
     groups: [
       {
@@ -328,7 +312,6 @@ const SECTIONS: Section[] = [
     label: "Enchiladas & Vegetarian",
     tab: "Enchiladas",
     color: "cactus",
-    image: imgEnchiladas,
     groups: [
       {
         title: "Enchiladas",
@@ -362,7 +345,6 @@ const SECTIONS: Section[] = [
     label: "Seafood",
     tab: "Seafood",
     color: "agave",
-    image: imgSeafood,
     blurb: "From the Gulf — Acapulco-style.",
     groups: [
       {
@@ -395,7 +377,6 @@ const SECTIONS: Section[] = [
     label: "Combinations & A La Carte",
     tab: "Combinations",
     color: "chili",
-    image: imgCombos,
     blurb: "Every combination $11.99. Pick your favorites.",
     groups: [
       {
@@ -443,7 +424,6 @@ const SECTIONS: Section[] = [
     label: "Desserts & Sides",
     tab: "Desserts",
     color: "marigold",
-    image: imgDesserts,
     groups: [
       {
         title: "Desserts",
@@ -484,7 +464,6 @@ const SECTIONS: Section[] = [
     label: "Kids Plates",
     tab: "Kids",
     color: "agave",
-    image: imgKids,
     blurb: "Only for kids 10 and under.",
     groups: [
       {
@@ -628,30 +607,19 @@ function Index() {
           const c = colorClasses(s.color);
           return (
             <section key={s.id} id={s.id} className="scroll-mt-20">
-              {/* Section hero */}
-              <div className="grid md:grid-cols-[1.1fr_1fr] gap-6 items-stretch">
-                <div className="relative rounded-2xl overflow-hidden border border-border/30 min-h-56 md:min-h-72 group">
-                  <img
-                    src={s.image}
-                    alt={s.label}
-                    loading="lazy"
-                    width={1280}
-                    height={800}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-5">
-                    <div className={`inline-block ${c.bg} text-white px-4 py-1.5 rounded-md shadow-lg mb-2`}>
-                      <span className="font-display tracking-widest text-sm">{s.tab}</span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-display tracking-wide text-white drop-shadow-lg">
-                      {s.label}
-                    </h2>
+              {/* Section header */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-border/30 pb-4">
+                <div>
+                  <div className={`inline-block ${c.bg} text-white px-4 py-1.5 rounded-md shadow-lg mb-2`}>
+                    <span className="font-display tracking-widest text-sm">{s.tab}</span>
                   </div>
+                  <h2 className="text-3xl md:text-4xl font-display tracking-wide text-cream drop-shadow-lg">
+                    {s.label}
+                  </h2>
                 </div>
-                <div className="flex flex-col justify-center">
+                <div className="md:text-right md:max-w-sm">
                   {s.blurb && <p className="font-script text-2xl md:text-3xl text-cream/90">{s.blurb}</p>}
-                  <p className="mt-3 text-cream/70 text-sm">
+                  <p className="mt-1 text-cream/70 text-sm">
                     Tap{" "}
                     <a href={`tel:${PHONE_TEL}`} className={`${c.text} font-bold underline`}>
                       {PHONE}
