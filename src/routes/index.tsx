@@ -18,7 +18,6 @@ type Section = {
   label: string;
   tab: string;
   color: "chili" | "cactus" | "marigold" | "agave" | "mesa";
-  image: string;
   blurb?: string;
   groups?: { title?: string; note?: string; items: Item[] }[];
   items?: Item[];
