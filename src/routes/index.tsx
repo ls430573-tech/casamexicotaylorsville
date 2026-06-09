@@ -2,16 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import imgAppetizers from "@/assets/appetizers.jpg";
-import imgLunch from "@/assets/lunch.jpg";
-import imgSpecialties from "@/assets/molcajete.jpg";
-import imgBurritos from "@/assets/burritos.jpg";
-import imgFajitas from "@/assets/fajitas.jpg";
-import imgEnchiladas from "@/assets/enchiladas.jpg";
-import imgSeafood from "@/assets/seafood.jpg";
-import imgCombos from "@/assets/combinations.jpg";
-import imgDesserts from "@/assets/desserts.jpg";
-import imgKids from "@/assets/kids.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
