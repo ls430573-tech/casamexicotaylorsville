@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://casamexicotaylorsville.lovable.app/sitemap.xml
