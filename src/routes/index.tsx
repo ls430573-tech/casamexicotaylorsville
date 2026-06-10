@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
 const PHONE = "828-352-9901";
 const PHONE_TEL = "+18283529901";
 const ADDRESS = "60 Liledoun Rd, Taylorsville, NC 28681";
-const HOURS = "Open Daily · 11am – 10pm · Fridays till 10:30";
+const HOURS = "Open Daily · 11am – 10pm · Fridays till 10:30pm";
 
 type Item = { n?: string; name: string; desc?: string; price: string };
 type Section = {
@@ -345,28 +345,28 @@ const SECTIONS: Section[] = [
     label: "Seafood",
     tab: "Seafood",
     color: "agave",
-    blurb: "From the Gulf — Acapulco-style.",
+    blurb: "From the Gulf ",
     groups: [
       {
         items: [
-          { n: "83", name: "Camarones al Mojo de Ajo", desc: "Shrimp cooked in special garlic sauce. Rice and salad.", price: "16.25" },
-          { n: "84", name: "Camarones a la Diabla", desc: "Grilled shrimp with hot diabla-style sauce. Rice and salad.", price: "16.25" },
-          { n: "85", name: "Mojarra", desc: "Whole tilapia fish deep fried. Rice and salad.", price: "17.25" },
-          { n: "86", name: "Camarones Casa Mexico", desc: "Grilled shrimp with onions and mushrooms, covered with cheese dip. Rice and salad.", price: "16.25" },
+          { n: "83", name: "Camarones al Mojo de Ajo", desc: "Shrimp cooked in special garlic sauce. Served with rice and salad.", price: "16.25" },
+          { n: "84", name: "Camarones a la Diabla", desc: "Grilled shrimp with hot diabla-style sauce. Served with rice and salad.", price: "16.25" },
+          { n: "85", name: "Mojarra", desc: "Whole tilapia fish deep fried. Served with rice and salad.", price: "17.25" },
+          { n: "86", name: "Camarones Casa Mexico", desc: "Grilled shrimp with onions and mushrooms, covered with cheese dip. Served with rice and salad.", price: "16.25" },
           { n: "87", name: "Arroz con Camarón", desc: "Grilled shrimp with onions and broccoli on a bed of rice topped with cheese dip.", price: "16.25" },
-          { n: "88", name: "Shrimp Delight", desc: "Jumbo shrimp grilled with onions on tortilla chips, topped with cheese dip. Rice.", price: "16.25" },
-          { n: "89", name: "Filete de Pescado", desc: "Two grilled fish fillets. Rice and salad.", price: "16.25" },
-          { n: "90", name: "Shrimp Chimichanga", desc: "X-large flour tortilla stuffed with shrimp, onions and tomatoes. Smothered with cheese sauce, rice or beans and salad.", price: "16.25" },
-          { n: "91", name: "Arroz Cancún", desc: "Shrimp and scallops with onions and cheese dip. Rice and salad.", price: "16.25" },
+          { n: "88", name: "Shrimp Delight", desc: "Jumbo shrimp grilled with onions on tortilla chips, topped with cheese dip and rice.", price: "16.25" },
+          { n: "89", name: "Filete de Pescado", desc: "Two grilled fish fillets. Served with rice and salad.", price: "16.25" },
+          { n: "90", name: "Shrimp Chimichanga", desc: "X-large flour tortilla stuffed with shrimp, onions and tomatoes. Smothered with cheese sauce, (rice or beans) and salad.", price: "16.25" },
+          { n: "91", name: "Arroz Cancún", desc: "Shrimp and scallops with onions and cheese dip. Served with rice and salad.", price: "16.25" },
           { n: "92", name: "Sopa de Mariscos", desc: "Seafood soup with shrimp, scallops, fish and vegetables.", price: "17.99" },
-          { n: "93", name: "Burrito Marino", desc: "Seafood burrito with shrimp, scallops, crab meat and grilled onions, cheese dip on top. Rice.", price: "15.99" },
-          { n: "94", name: "Camarones Empanizados", desc: "Butterfly breaded shrimp. Rice and salad.", price: "16.25" },
+          { n: "93", name: "Burrito Marino", desc: "Seafood burrito with shrimp, scallops, crab meat and grilled onions, cheese dip on top. Served with rice.", price: "15.99" },
+          { n: "94", name: "Camarones Empanizados", desc: "Butterfly breaded shrimp. Served with rice and salad.", price: "16.25" },
           { n: "95", name: "Shrimp Pasta", desc: "Delicious fresh-made pasta with special alfredo sauce and shrimp on top.", price: "16.25" },
-          { n: "96", name: "Mojarra Veracruz", desc: "Whole tilapia deep fried with grilled shrimp on top, covered with “a la diabla” sauce. Rice and salad.", price: "19.99" },
+          { n: "96", name: "Mojarra Veracruz", desc: "Whole tilapia deep fried with grilled shrimp on top, covered with “a la diabla” sauce. Served with rice and salad.", price: "19.99" },
           { n: "97", name: "Coctel de Camarón", desc: "Shrimp cooked until tender, peeled and chilled. House cocktail sauce, avocado and pico de gallo.", price: "16.99" },
           { n: "98", name: "Coctel Campechano", desc: "Octopus and shrimp cooked until tender, peeled and chilled. House cocktail sauce, avocado, pico de gallo.", price: "17.99" },
-          { n: "99", name: "Ceviche Camarón", desc: "Shrimp cooked in lemon juice with onions, tomatoes, jalapeño, cilantro and avocado. Crackers or tostadas.", price: "16.99" },
-          { n: "100", name: "Ceviche Campechano", desc: "Shrimp and octopus cooked in lemon juice with onions, tomatoes, jalapeño, cilantro and avocado. Crackers or tostadas.", price: "17.99" },
+          { n: "99", name: "Ceviche Camarón", desc: "Shrimp cooked in lemon juice with onions, tomatoes, cilantro and avocado. Crackers or tostadas.", price: "16.99" },
+          { n: "100", name: "Ceviche Campechano", desc: "Shrimp and octopus cooked in lemon juice with onions, tomatoes, cilantro and avocado. Crackers or tostadas.", price: "17.99" },
           { n: "101", name: "El Acapulco", desc: "Mix of shrimp and scallops with grilled zucchini, squash over rice and topped with cheese sauce.", price: "16.99" },
         ],
       },
@@ -385,7 +385,7 @@ const SECTIONS: Section[] = [
           { n: "1", name: "Two Enchiladas, Rice & One Taco", price: "11.99" },
           { n: "2", name: "One Enchilada, One Chalupa & One Taco", price: "11.99" },
           { n: "3", name: "Two Enchiladas, Rice & Beans", price: "11.99" },
-          { n: "4", name: "One Burrito Taco, Rice & Beans", price: "11.99" },
+          { n: "4", name: "One Burrito, one Taco, Rice & Beans", price: "11.99" },
           { n: "5", name: "Two Tacos, Rice & Beans", price: "11.99" },
           { n: "6", name: "One Burrito, One Enchilada & One Taco", price: "11.99" },
           { n: "7", name: "One Burrito, One Chile Relleno & One Taco", price: "11.99" },
@@ -564,8 +564,6 @@ function Index() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-cream/80">
             <span>🌶 Authentic Mexican</span>
-            <span>🦐 Fresh Seafood</span>
-            <span>🍹 Margaritas & Piña Coladas</span>
             <span>👨‍👩‍👧 Kids Menu</span>
           </div>
         </div>
