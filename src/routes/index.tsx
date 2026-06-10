@@ -564,8 +564,6 @@ function Index() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-cream/80">
             <span>🌶 Authentic Mexican</span>
-            <span>🦐 Fresh Seafood</span>
-            <span>🍹 Margaritas & Piña Coladas</span>
             <span>👨‍👩‍👧 Kids Menu</span>
           </div>
         </div>
