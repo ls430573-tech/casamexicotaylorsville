@@ -78,15 +78,41 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Casa Mexico Restaurant — Authentic Mexican in Taylorsville, NC" },
-      { name: "description", content: "Casa Mexico Restaurant in Taylorsville, NC. Fajitas, seafood, enchiladas, burritos and more. Open 11am–10pm and Fridays till 10:30pm . Call 828-352-9901." },
-      { property: "og:title", content: "Casa Mexico Restaurant — Authentic Mexican in Taylorsville, NC" },
-      { property: "og:description", content: "Casa Mexico Restaurant in Taylorsville, NC. Fajitas, seafood, enchiladas, burritos and more. Open 11am–10pm and Fridays till 10:30pm . Call 828-352-9901." },
+      {
+        name: "description",
+        content:
+          "Casa Mexico Restaurant in Taylorsville, NC. Fajitas, seafood, enchiladas, burritos and more. Open 11am–10pm and Fridays till 10:30pm . Call 828-352-9901.",
+      },
+      {
+        property: "og:title",
+        content: "Casa Mexico Restaurant — Authentic Mexican in Taylorsville, NC",
+      },
+      {
+        property: "og:description",
+        content:
+          "Casa Mexico Restaurant in Taylorsville, NC. Fajitas, seafood, enchiladas, burritos and more. Open 11am–10pm and Fridays till 10:30pm . Call 828-352-9901.",
+      },
       { property: "og:type", content: "restaurant" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Casa Mexico Restaurant — Authentic Mexican in Taylorsville, NC" },
-      { name: "twitter:description", content: "Casa Mexico Restaurant in Taylorsville, NC. Fajitas, seafood, enchiladas, burritos and more. Open 11am–10pm and Fridays till 10:30pm . Call 828-352-9901." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2d5ac35f-f2bd-437a-b133-68e99df386e8" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2d5ac35f-f2bd-437a-b133-68e99df386e8" },
+      {
+        name: "twitter:title",
+        content: "Casa Mexico Restaurant — Authentic Mexican in Taylorsville, NC",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Casa Mexico Restaurant in Taylorsville, NC. Fajitas, seafood, enchiladas, burritos and more. Open 11am–10pm and Fridays till 10:30pm . Call 828-352-9901.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2d5ac35f-f2bd-437a-b133-68e99df386e8",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2d5ac35f-f2bd-437a-b133-68e99df386e8",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
