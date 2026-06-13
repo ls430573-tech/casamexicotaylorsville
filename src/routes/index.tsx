@@ -508,7 +508,7 @@ const DEFAULT_IMAGES: Record<string, string> = {
   "seafood::91::Arroz Cancún": "/menu/arroz-cancun.jpg",
   "seafood::97::Coctel de Camarón": "/menu/coctel-de-camaron.jpg",
   "sides::::Churros": "/menu/churros.jpg",
-  "sides::::Sopapilla": "/menu/sopapilla.jpg",
+  
 };
 
 const STORAGE_KEY = "casa-mexico-menu-images-v1";
