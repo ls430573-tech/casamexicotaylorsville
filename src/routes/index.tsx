@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -13,6 +13,7 @@ const ADDRESS = "60 Liledoun Rd, Taylorsville, NC 28681";
 const HOURS = "Open Daily · 11am – 10pm · Fridays till 10:30pm";
 
 type Item = { n?: string; name: string; desc?: string; price: string };
+
 type Section = {
   id: string;
   label: string;
@@ -494,9 +495,54 @@ function colorClasses(c: Section["color"]) {
   return map[c];
 }
 
-function ItemRow({ it, accent }: { it: Item; accent: string }) {
+const itemKey = (sectionId: string, it: Item) =>
+  `${sectionId}::${it.n ?? ""}::${it.name}`;
+
+const DEFAULT_IMAGES: Record<string, string> = {
+  "dinners::33::Pasta Shrimp": "/menu/pasta-shrimp.jpg",
+  "dinners::43::Burrito Texano": "/menu/burrito-texano.jpg",
+  "dinners::49::Chile Colorado Burrito": "/menu/chile-colorado-burrito.jpg",
+  "dinners::50::Burrito Verde": "/menu/burrito-verde.jpg",
+  "dinners::52::Quesadilla Texana": "/menu/quesadilla-texana.jpg",
+  "seafood::74::Fajita Seafood Tropical": "/menu/fajita-seafood-tropical.jpg",
+  "seafood::91::Arroz Cancún": "/menu/arroz-cancun.jpg",
+  "seafood::97::Coctel de Camarón": "/menu/coctel-de-camaron.jpg",
+  "sides::::Churros": "/menu/churros.jpg",
+  "sides::::Sopapilla": "/menu/sopapilla.jpg",
+};
+
+const STORAGE_KEY = "casa-mexico-menu-images-v1";
+
+function ItemRow({
+  it,
+  accent,
+  image,
+  onDragStartImage,
+  onDropOnItem,
+}: {
+  it: Item;
+  accent: string;
+  image?: string;
+  onDragStartImage: () => void;
+  onDropOnItem: () => void;
+}) {
+  const [over, setOver] = useState(false);
   return (
-    <div className="bg-card/80 backdrop-blur p-5 hover:bg-card transition flex gap-4">
+    <div
+      onDragOver={(e) => {
+        e.preventDefault();
+        setOver(true);
+      }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => {
+        e.preventDefault();
+        setOver(false);
+        onDropOnItem();
+      }}
+      className={`bg-card/80 backdrop-blur p-5 hover:bg-card transition flex gap-4 ${
+        over ? "ring-2 ring-marigold" : ""
+      }`}
+    >
       {it.n && (
         <span className={`font-display text-2xl ${accent} shrink-0 w-10`}>{it.n}</span>
       )}
@@ -506,6 +552,19 @@ function ItemRow({ it, accent }: { it: Item; accent: string }) {
           <span className={`font-display text-xl ${accent} shrink-0`}>${it.price}</span>
         </div>
         {it.desc && <p className="mt-1 text-sm text-cream/70 leading-relaxed">{it.desc}</p>}
+        {image && (
+          <img
+            src={image}
+            alt={it.name}
+            draggable
+            onDragStart={(e) => {
+              e.dataTransfer.effectAllowed = "move";
+              onDragStartImage();
+            }}
+            className="mt-3 w-full max-w-xs h-40 object-cover rounded-lg shadow-md cursor-grab active:cursor-grabbing border border-border/40"
+            title="Drag to reassign this photo to a different item"
+          />
+        )}
       </div>
     </div>
   );
@@ -513,6 +572,42 @@ function ItemRow({ it, accent }: { it: Item; accent: string }) {
 
 function Index() {
   const [active, setActive] = useState(SECTIONS[0].id);
+  const [images, setImages] = useState<Record<string, string>>(DEFAULT_IMAGES);
+  const [draggingFrom, setDraggingFrom] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) setImages(JSON.parse(raw));
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(images));
+    } catch {}
+  }, [images]);
+
+  const resetImages = () => setImages(DEFAULT_IMAGES);
+
+  const handleDrop = (toKey: string) => {
+    if (!draggingFrom || draggingFrom === toKey) return;
+    setImages((prev) => {
+      const next = { ...prev };
+      const movingImg = next[draggingFrom];
+      const targetImg = next[toKey];
+      if (!movingImg) return prev;
+      if (targetImg) {
+        next[draggingFrom] = targetImg;
+      } else {
+        delete next[draggingFrom];
+      }
+      next[toKey] = movingImg;
+      return next;
+    });
+    setDraggingFrom(null);
+  };
+
 
   return (
     <div className="min-h-screen text-foreground">
@@ -599,8 +694,22 @@ function Index() {
         </div>
       </nav>
 
+      {/* Photo reassignment hint */}
+      <div className="mx-auto max-w-6xl px-4 pt-6 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-xs text-cream/60 italic">
+          Tip: drag any food photo onto a different item to move or swap it.
+        </p>
+        <button
+          onClick={resetImages}
+          className="text-xs px-3 py-1.5 rounded-md border border-border/40 text-cream/80 hover:bg-white/5"
+        >
+          Reset photo placement
+        </button>
+      </div>
+
       {/* Menu sections */}
       <main className="mx-auto max-w-6xl px-4 py-12 space-y-20">
+
         {SECTIONS.map((s) => {
           const c = colorClasses(s.color);
           return (
@@ -640,9 +749,20 @@ function Index() {
                       <p className="text-sm text-cream/70 italic mb-3">{g.note}</p>
                     )}
                     <div className={`grid gap-px ${c.soft} rounded-xl overflow-hidden border ${c.border}/30 md:grid-cols-2`}>
-                      {g.items.map((it, i) => (
-                        <ItemRow key={i} it={it} accent={c.text} />
-                      ))}
+                      {g.items.map((it, i) => {
+                        const k = itemKey(s.id, it);
+                        return (
+                          <ItemRow
+                            key={i}
+                            it={it}
+                            accent={c.text}
+                            image={images[k]}
+                            onDragStartImage={() => setDraggingFrom(k)}
+                            onDropOnItem={() => handleDrop(k)}
+                          />
+                        );
+                      })}
+
                     </div>
                   </div>
                 ))}
