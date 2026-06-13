@@ -561,7 +561,7 @@ function ItemRow({
               e.dataTransfer.effectAllowed = "move";
               onDragStartImage();
             }}
-            className="mt-3 w-full max-w-xs h-40 object-cover rounded-lg shadow-md cursor-grab active:cursor-grabbing border border-border/40"
+            className="mt-3 h-auto w-auto max-w-full rounded-lg shadow-md cursor-grab active:cursor-grabbing border border-border/40"
             title="Drag to reassign this photo to a different item"
           />
         )}
