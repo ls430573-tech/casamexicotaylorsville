@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -13,6 +13,7 @@ const ADDRESS = "60 Liledoun Rd, Taylorsville, NC 28681";
 const HOURS = "Open Daily · 11am – 10pm · Fridays till 10:30pm";
 
 type Item = { n?: string; name: string; desc?: string; price: string };
+
 type Section = {
   id: string;
   label: string;
