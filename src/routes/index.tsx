@@ -694,8 +694,22 @@ function Index() {
         </div>
       </nav>
 
+      {/* Photo reassignment hint */}
+      <div className="mx-auto max-w-6xl px-4 pt-6 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-xs text-cream/60 italic">
+          Tip: drag any food photo onto a different item to move or swap it.
+        </p>
+        <button
+          onClick={resetImages}
+          className="text-xs px-3 py-1.5 rounded-md border border-border/40 text-cream/80 hover:bg-white/5"
+        >
+          Reset photo placement
+        </button>
+      </div>
+
       {/* Menu sections */}
       <main className="mx-auto max-w-6xl px-4 py-12 space-y-20">
+
         {SECTIONS.map((s) => {
           const c = colorClasses(s.color);
           return (
