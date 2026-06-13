@@ -429,7 +429,7 @@ const SECTIONS: Section[] = [
       {
         title: "Desserts",
         items: [
-          { name: "Sopapilla", price: "4.25" },
+          
           { name: "Flan", price: "4.75" },
           { name: "Nieve", price: "5.99" },
           { name: "Churros Cheesecake", price: "6.25" },
