@@ -735,9 +735,20 @@ function Index() {
                       <p className="text-sm text-cream/70 italic mb-3">{g.note}</p>
                     )}
                     <div className={`grid gap-px ${c.soft} rounded-xl overflow-hidden border ${c.border}/30 md:grid-cols-2`}>
-                      {g.items.map((it, i) => (
-                        <ItemRow key={i} it={it} accent={c.text} />
-                      ))}
+                      {g.items.map((it, i) => {
+                        const k = itemKey(s.id, it);
+                        return (
+                          <ItemRow
+                            key={i}
+                            it={it}
+                            accent={c.text}
+                            image={images[k]}
+                            onDragStartImage={() => setDraggingFrom(k)}
+                            onDropOnItem={() => handleDrop(k)}
+                          />
+                        );
+                      })}
+
                     </div>
                   </div>
                 ))}
