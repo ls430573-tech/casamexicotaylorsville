@@ -56,15 +56,15 @@ const DEFAULT_IMAGES: Record<string, string> = {
   "seafood::97::Coctel de Camarón": "/menu/coctel-de-camaron.jpg",
   "sides::::Churros": "/menu/churros.jpg",
   "appetizers::::Sampler Appetizers": "/menu/sampler-appetizers.jpg",
-  "lunch::::Tacobirria": "/menu/tacobirria.jpg",
-  "lunch::::Sopes": "/menu/sopes-pizza-torta.jpg",
-  "lunch::::Pizza Birria": "/menu/sopes-pizza-torta.jpg",
-  "lunch::::Torta Asada": "/menu/sopes-pizza-torta.jpg",
+  "appetizers::::Tacobirria": "/menu/tacobirria.jpg",
+  "appetizers::::Sopes": "/menu/sopes-pizza-torta.jpg",
+  "appetizers::::Pizza Birria": "/menu/sopes-pizza-torta.jpg",
+  "appetizers::::Torta Asada": "/menu/sopes-pizza-torta.jpg",
   "dinners::50::Pelusa Texana": "/menu/pelusa-texana.jpg",
   "specialties::1::Dos Amigos": "/menu/dos-amigos.jpg",
 };
 
-const STORAGE_KEY = "casa-mexico-menu-images-v2";
+const STORAGE_KEY = "casa-mexico-menu-images-v3";
 
 function ItemRow({
   it,
