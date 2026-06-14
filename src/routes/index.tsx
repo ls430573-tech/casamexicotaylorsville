@@ -62,7 +62,7 @@ const DEFAULT_IMAGES: Record<string, string> = {
   "specialties::1::Dos Amigos": "/menu/dos-amigos.jpg",
 };
 
-const STORAGE_KEY = "casa-mexico-menu-images-v4";
+const STORAGE_KEY = "casa-mexico-menu-images-v5";
 
 function ItemRow({
   it,
