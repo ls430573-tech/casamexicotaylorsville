@@ -58,12 +58,11 @@ const DEFAULT_IMAGES: Record<string, string> = {
   "appetizers::::Sampler Appetizers": "/menu/sampler-appetizers.jpg",
   "appetizers::::Tacobirria": "/menu/tacobirria.jpg",
   "appetizers::::Sopes": "/menu/sopes-pizza-torta.jpg",
-  "appetizers::::Pizza Birria": "/menu/sopes-pizza-torta.jpg",
   "dinners::50::Pelusa Texana": "/menu/pelusa-texana.jpg",
   "specialties::1::Dos Amigos": "/menu/dos-amigos.jpg",
 };
 
-const STORAGE_KEY = "casa-mexico-menu-images-v4";
+const STORAGE_KEY = "casa-mexico-menu-images-v5";
 
 function ItemRow({
   it,
