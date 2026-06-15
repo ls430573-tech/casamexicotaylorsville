@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
+import restaurantPhoto from "@/assets/restaurant-photo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -234,6 +235,17 @@ function Index() {
           </div>
         </div>
       </header>
+
+      {/* Restaurant Photo */}
+      <section className="mx-auto max-w-6xl px-4 py-10">
+        <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
+          <img
+            src={restaurantPhoto.url}
+            alt="Casa Mexico Restaurant exterior"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      </section>
 
       {/* Sticky section tabs */}
       <nav
