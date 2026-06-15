@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
 import restaurantPhoto from "@/assets/restaurant-photo.jpg.asset.json";
+import barWhiskey from "@/assets/bar-whiskey.jpg.asset.json";
+import barTequila from "@/assets/bar-tequila.jpg.asset.json";
+import barFullbar from "@/assets/bar-fullbar.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -385,6 +388,29 @@ function Index() {
             </section>
           );
         })}
+
+        {/* Full Bar Section */}
+        <section className="space-y-6">
+          <div className="flex items-baseline justify-between gap-4 border-b border-border/40 pb-3">
+            <h2 className="font-display text-4xl md:text-5xl tracking-tight text-accent">
+              Full Bar
+            </h2>
+            <span className="text-sm text-cream/70 italic">Tequila · Whiskey · Cocktails</span>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="md:col-span-2 rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
+              <img src={barFullbar.url} alt="Casa Mexico full bar" className="w-full h-auto object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
+              <img src={barTequila.url} alt="Tequila selection" className="w-full h-auto object-cover" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
+              <img src={barWhiskey.url} alt="Whiskey selection" className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </section>
+
+
 
         <p className="text-xs text-cream/60 italic text-center max-w-2xl mx-auto">
           *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase
