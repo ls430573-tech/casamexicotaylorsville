@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
+import restaurantPhoto from "@/assets/restaurant-photo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
