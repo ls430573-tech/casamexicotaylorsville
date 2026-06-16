@@ -280,16 +280,16 @@ function Index() {
         </div>
       </nav>
 
-      {/* Photo reassignment hint */}
-      <div className="mx-auto max-w-6xl px-4 pt-6 flex flex-wrap items-center justify-between gap-3">
+      {/* Photo reassignment hint (Empty as requested) */}
+      <div className="mx-auto max-w-6xl px-4 pt-6 flex flex-wrap items-center justify-between gap-3 h-0 overflow-hidden opacity-0">
         <p className="text-xs text-cream/60 italic">
-          Tip: drag any food photo onto a different item to move or swap it.
+          {"\n"}
         </p>
         <button
           onClick={resetImages}
           className="text-xs px-3 py-1.5 rounded-md border border-border/40 text-cream/80 hover:bg-white/5"
         >
-          Reset photo placement
+          {"\n"}
         </button>
       </div>
 
