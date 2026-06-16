@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import restaurantPhoto from "@/assets/restaurant-photo.jpg.asset.json";
-import barWhiskey from "@/assets/bar-whiskey.jpg.asset.json";
-import barTequila from "@/assets/bar-tequila.jpg.asset.json";
-import barFullbar from "@/assets/bar-fullbar.jpg.asset.json";
+import restaurantPhotoData from "@/assets/restaurant-photo.jpg.asset.json";
+import barWhiskeyData from "@/assets/bar-whiskey.jpg.asset.json";
+import barTequilaData from "@/assets/bar-tequila.jpg.asset.json";
+import barFullbarData from "@/assets/bar-fullbar.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -30,6 +30,17 @@ const PHONE_TEL = menuData.phone_tel;
 const ADDRESS = menuData.address;
 const HOURS = menuData.hours;
 const SECTIONS = menuData.sections as Section[];
+
+// Helper to convert R2 keys to public URLs
+function getAssetUrl(assetData: { r2_key: string }): string {
+  const r2Key = assetData.r2_key;
+  return `https://cdn.lovable.dev/${r2Key}`;
+}
+
+const restaurantPhoto = getAssetUrl(restaurantPhotoData);
+const barWhiskey = getAssetUrl(barWhiskeyData);
+const barTequila = getAssetUrl(barTequilaData);
+const barFullbar = getAssetUrl(barFullbarData);
 
 function colorClasses(c: Section["color"]) {
   const map = {
@@ -243,7 +254,7 @@ function Index() {
       <section className="mx-auto max-w-6xl px-4 py-10">
         <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
           <img
-            src={restaurantPhoto.url}
+            src={restaurantPhoto}
             alt="Casa Mexico Restaurant exterior"
             className="w-full h-auto object-cover"
           />
@@ -399,13 +410,13 @@ function Index() {
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="md:col-span-2 rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barFullbar.url} alt="Casa Mexico full bar" className="w-full h-auto object-cover" />
+              <img src={barFullbar} alt="Casa Mexico full bar" className="w-full h-auto object-cover" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barTequila.url} alt="Tequila selection" className="w-full h-auto object-cover" />
+              <img src={barTequila} alt="Tequila selection" className="w-full h-auto object-cover" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barWhiskey.url} alt="Whiskey selection" className="w-full h-auto object-cover" />
+              <img src={barWhiskey} alt="Whiskey selection" className="w-full h-auto object-cover" />
             </div>
           </div>
         </section>
