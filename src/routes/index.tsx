@@ -31,16 +31,11 @@ const ADDRESS = menuData.address;
 const HOURS = menuData.hours;
 const SECTIONS = menuData.sections as Section[];
 
-// Helper to convert R2 keys to public URLs
-function getAssetUrl(assetData: { r2_key: string }): string {
-  const r2Key = assetData.r2_key;
-  return `https://cdn.lovable.dev/${r2Key}`;
-}
-
-const restaurantPhoto = getAssetUrl(restaurantPhotoData);
-const barWhiskey = getAssetUrl(barWhiskeyData);
-const barTequila = getAssetUrl(barTequilaData);
-const barFullbar = getAssetUrl(barFullbarData);
+// Use the internal asset URLs from Stackbit
+const restaurantPhoto = restaurantPhotoData.url;
+const barWhiskey = barWhiskeyData.url;
+const barTequila = barTequilaData.url;
+const barFullbar = barFullbarData.url;
 
 function colorClasses(c: Section["color"]) {
   const map = {
