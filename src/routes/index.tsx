@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import restaurantPhoto from "@/assets/restaurant-photo.jpg.asset.json";
-import barWhiskey from "@/assets/bar-whiskey.jpg.asset.json";
-import barTequila from "@/assets/bar-tequila.jpg.asset.json";
-import barFullbar from "@/assets/bar-fullbar.jpg.asset.json";
+import restaurantPhoto from "@/assets/restaurant-photo.jpg";
+import barWhiskey from "@/assets/bar-whiskey.jpg";
+import barTequila from "@/assets/bar-tequila.jpg";
+import barFullbar from "@/assets/bar-fullbar.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -243,7 +243,7 @@ function Index() {
       <section className="mx-auto max-w-6xl px-4 py-10">
         <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
           <img
-            src={restaurantPhoto.url}
+            src={restaurantPhoto}
             alt="Casa Mexico Restaurant exterior"
             className="w-full h-auto object-cover"
           />
@@ -399,13 +399,13 @@ function Index() {
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="md:col-span-2 rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barFullbar.url} alt="Casa Mexico full bar" className="w-full h-auto object-cover" />
+              <img src={barFullbar} alt="Casa Mexico full bar" className="w-full h-auto object-cover" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barTequila.url} alt="Tequila selection" className="w-full h-auto object-cover" />
+              <img src={barTequila} alt="Tequila selection" className="w-full h-auto object-cover" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barWhiskey.url} alt="Whiskey selection" className="w-full h-auto object-cover" />
+              <img src={barWhiskey} alt="Whiskey selection" className="w-full h-auto object-cover" />
             </div>
           </div>
         </section>
