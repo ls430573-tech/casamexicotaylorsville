@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
 import restaurantPhoto from "@/assets/molcajete.jpg";
+import bar1 from "@/assets/bar-1.jpg";
+import bar2 from "@/assets/bar-2.jpg";
+import bar3 from "@/assets/bar-3.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -395,18 +398,16 @@ function Index() {
             <span className="text-sm text-cream/70 italic">Tequila · Whiskey · Cocktails</span>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
-            {[
-              { icon: "🥃", title: "Tequila", note: "Blanco, reposado & añejo pours" },
-              { icon: "🥂", title: "Cocktails", note: "House margaritas & classics" },
-              { icon: "🍸", title: "Whiskey", note: "A curated whiskey selection" },
-            ].map((b) => (
+            {[bar1, bar2, bar3].map((img, i) => (
               <div
-                key={b.title}
-                className="rounded-2xl border border-border/40 wood-texture p-8 text-center shadow-xl shadow-black/20"
+                key={i}
+                className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20"
               >
-                <div className="text-5xl">{b.icon}</div>
-                <h3 className="mt-4 font-display text-2xl tracking-tight text-accent">{b.title}</h3>
-                <p className="mt-2 text-sm text-cream/70">{b.note}</p>
+                <img
+                  src={img}
+                  alt="Casa Mexico full bar"
+                  className="w-full h-full object-cover aspect-[4/5]"
+                />
               </div>
             ))}
           </div>
