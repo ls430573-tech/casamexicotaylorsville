@@ -2,10 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import restaurantPhotoData from "@/assets/restaurant-photo.jpg.asset.json";
-import barWhiskeyData from "@/assets/bar-whiskey.jpg.asset.json";
-import barTequilaData from "@/assets/bar-tequila.jpg.asset.json";
-import barFullbarData from "@/assets/bar-fullbar.jpg.asset.json";
+import restaurantPhoto from "@/assets/molcajete.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -30,12 +27,6 @@ const PHONE_TEL = menuData.phone_tel;
 const ADDRESS = menuData.address;
 const HOURS = menuData.hours;
 const SECTIONS = menuData.sections as Section[];
-
-// Use the internal asset URLs from Stackbit
-const restaurantPhoto = restaurantPhotoData.url;
-const barWhiskey = barWhiskeyData.url;
-const barTequila = barTequilaData.url;
-const barFullbar = barFullbarData.url;
 
 function colorClasses(c: Section["color"]) {
   const map = {
@@ -250,7 +241,7 @@ function Index() {
         <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
           <img
             src={restaurantPhoto}
-            alt="Casa Mexico Restaurant exterior"
+            alt="Sizzling molcajete at Casa Mexico"
             className="w-full h-auto object-cover"
           />
         </div>
@@ -403,16 +394,21 @@ function Index() {
             </h2>
             <span className="text-sm text-cream/70 italic">Tequila · Whiskey · Cocktails</span>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="md:col-span-2 rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barFullbar} alt="Casa Mexico full bar" className="w-full h-auto object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barTequila} alt="Tequila selection" className="w-full h-auto object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-border/40 shadow-xl shadow-black/20">
-              <img src={barWhiskey} alt="Whiskey selection" className="w-full h-auto object-cover" />
-            </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { icon: "🥃", title: "Tequila", note: "Blanco, reposado & añejo pours" },
+              { icon: "🥂", title: "Cocktails", note: "House margaritas & classics" },
+              { icon: "🍸", title: "Whiskey", note: "A curated whiskey selection" },
+            ].map((b) => (
+              <div
+                key={b.title}
+                className="rounded-2xl border border-border/40 wood-texture p-8 text-center shadow-xl shadow-black/20"
+              >
+                <div className="text-5xl">{b.icon}</div>
+                <h3 className="mt-4 font-display text-2xl tracking-tight text-accent">{b.title}</h3>
+                <p className="mt-2 text-sm text-cream/70">{b.note}</p>
+              </div>
+            ))}
           </div>
         </section>
 
